@@ -20,29 +20,37 @@
                 <label for="">Minimum Length: </label>  
                 <input type="text" class='textInput' placeholder='Min: 8 - Max: 128' id='minLength'>
             </div>
+
+        <fieldset>
+            <legend>Character Types: </legend>
             <div class="box">
                 <label for="">Use Special Characters:</label>
-                <input type="checkbox" class='checkbo' id='specialInput'>
+                <input type="checkbox" class='checkbo' id='specialInput'  >
             </div>
             <div class="box">
                 <label for="">Use Numbers:</label>
-                <input  type="checkbox" class='checkbo' id='numberInput'>
+                <input  type="checkbox" class='checkbo' id='numberInput' >
             </div>
             <div class="box">
                 <label for="">Use Lowercase Letters:</label>    
-                <input type="checkbox" class='checkbo' id='lowerInput'>
+                <input type="checkbox" class='checkbo' id='lowerInput' >
             </div>
             <div class="box">
                 <label for="">Use Uppercase Letters:</label>    
-                <input type="checkbox" class='checkbo' id='upperInput'>
+                <input type="checkbox" class='checkbo' id='upperInput' >
             </div>
+        </fieldset>
+
+
         </div>
 
-        <textarea name="" id="pass" cols="30" rows="10" class='textInput'  placeholder='Password Will Generate Here' readonly></textarea>
+        <div class="passCard">
+            <textarea name="" id="pass" cols="30" rows="10" class='textInput'  placeholder='Password Will Generate Here' readonly></textarea>
+            <div id="card"><p>Copied :)</p></div>    
+        </div>
 
         <div class="buttons">
             <button id='generate'>Generate</button>
-
             <button id='copy'> copy to clipboard</button>
         </div>
 
@@ -52,6 +60,8 @@
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
     <script src='everything/script.js'></script>
 </body>
 </html>

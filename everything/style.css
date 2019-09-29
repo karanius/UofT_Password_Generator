@@ -5,6 +5,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     overflow: hidden;
+
 }
 
 .container{
@@ -13,7 +14,6 @@ body{
     justify-content: center;
     align-items: center;
     margin: 3% 8%;
-    /* background: rgba(255, 0, 0, 0.103) */
 }
 
 .logo{
@@ -21,10 +21,10 @@ body{
     font-size: 17px;
     font-weight: 900;
     text-align: center;
-    border: 5px solid rgb(21, 115, 255);
+    border: 5px dotted rgb(21, 115, 255);
     padding: 10px 30px ;
     letter-spacing: 5px;
-    background-color: rgba(0, 0, 255, 0.171);
+    background-color: rgba(0, 0, 255, 0.089);
     margin-bottom: 5px;
     box-shadow: inset 1px 1px 2px 2px rgba(0, 0, 0, 0.199);
 }
@@ -52,7 +52,10 @@ body{
 }
 
 .box1{
+    margin-top: 6px;
     padding-bottom: 9px;
+    padding-top: 8px;
+    margin-bottom:10px;
 }
 
 .textInput{
@@ -95,6 +98,15 @@ button{
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.596), inset 1px 1px 2px 1px rgba(0, 0, 0, 0.11);
 }
+
+button:hover{
+    background: rgba(255, 0, 0, 0.267);
+}
+button:focus{
+    outline: none;
+    background: rgba(255, 0, 0, 0.267);
+}
+
 
 .checkbo:focus{
     outline:none;
@@ -145,4 +157,32 @@ button{
 
 #infoTxt li{
     margin-bottom: 6px;
+}
+
+.passCard{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#card{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color:rgb(255, 0, 0);
+    position: absolute;
+    border-radius: 40px;
+    bottom:50px;
+    opacity: 0;
+    justify-content: center;
+    box-shadow: inset 1px 1px 10px 1px black;
+    border: 1px solid pink;
+    color:white;
+}
+
+#card p{
+    text-align: center;
 }

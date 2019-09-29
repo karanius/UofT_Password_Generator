@@ -7,13 +7,14 @@ const init = () => {
     let chosenLength;
     let password=[];
     let errorList=[];
+    let chars = [];
 
     // this is the set of erros that will be made as a reference once something is out of lines
     var errors = [
-            "> Your \"Minimum Lenght\" section is: Empty.",                             //0
-            "> You must choose a minimum of: 8, as length.",                            //1
-            "> You must only enter an 'Integer Number' as the 'Minimum Length'.",      //2
-            "> Please enter a value between 8 and 128 in 'Minimum Length'.",           //3
+            "> Your \"Minimum Lenght\" section is: Empty.",                                    //0
+            "> You must choose a minimum of: 8, as length.",                                   //1
+            "> You must only enter an 'Integer Number' as the 'Minimum Length'.",              //2
+            "> Please enter a value between 8 and 128 in 'Minimum Length'.",                   //3
             "> You must choose at least <strong>one</strong> or more 'Character Type'.",       //4
         ];
 
@@ -23,6 +24,8 @@ const init = () => {
     const upperInput = document.getElementById('upperInput');
     const infoBox = document.getElementById('infoTxt');
     const passwordField = document.getElementById('pass');
+
+    const copiedCard = document.getElementById('card');
 
     const generate = document.getElementById('generate');
     const copy = document.getElementById('copy');
@@ -41,9 +44,9 @@ const init = () => {
 
     // generate the actual password randomly
     function generateIt(){
-        password=[];
+        password = [];
+        chars = [];
         // check for selected char sets
-        let chars = [];
         if (specialInput.checked ===true) {
             chars.push(specialChars);
         } if (numberInput.checked === true) {
@@ -53,14 +56,42 @@ const init = () => {
         } if (  upperInput.checked ===true){
             chars.push(upperCaseChars)
         }
-        for (let i = 0; i < chosenLength; i++){
         
-// chars[random num between 0 and num of charSets selected][random number between 0 and max number of the chosen charset's length]
-        let genNum = Math.floor(Math.random() * Math.floor(chars.length));
-        password.push(chars[genNum][Math.floor(Math.random() * Math.floor(chars[genNum].length - 1))])
+        function valid(){
+            let trueFalseList = new Array(chars.length)
+            chars.map(function(char,i){
+                for (let len=0;len< password.length;len++){
+                    let charSet = new Set(char)
+                    if ( (charSet.has(password[len])) === true ){
+                        trueFalseList[i] = true
+                    }
+                }
+            })
+            console.log(trueFalseList)
+            const allMustBeTrue = new Set(trueFalseList)
+            if (allMustBeTrue.has(undefined)) {
+                return false;
+            }else{
+                return true;
+            }
         }
-        passwordField.innerHTML = password.join('');
-        passwordField.focus();
+
+        function generatous(){
+            for (let i = 0; i < chosenLength; i++){
+            // chars[random num between 0 and num of charSets selected][random number between 0 and max number of the chosen charset's length]
+            let genNum = Math.floor(Math.random() * Math.floor(chars.length));
+            password.push(chars[genNum][Math.floor(Math.random() * Math.floor(chars[genNum].length - 1))])
+            }
+                // validate to make sure there is at least 1 from each char sets
+            if (valid()){
+                passwordField.innerHTML = password.join('');
+                passwordField.focus();
+            } else{
+                password = [];
+                generatous()
+            }
+        }
+        generatous()
     };
 
 
@@ -114,6 +145,12 @@ const init = () => {
         if (passwordField.value === ''){
             infoBox.innerHTML = 'Nothing To Copy to Clipboard..';
         } else {
+            let tl = new TimelineMax();
+            tl.fromTo(copiedCard, 0.2, {opacity:0},{opacity:1})
+            .to(copiedCard, 0.9, {opacity:0},'+=0.3');
+            
+
+
             infoBox.innerHTML = '';
             passwordField.focus();
             passwordField.select();
