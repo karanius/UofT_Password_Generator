@@ -43,6 +43,7 @@ body{
     width: 290px;
     text-align: center;
     /* line-height: 50px; */
+    padding: 4px 0;
     background-color: rgba(238, 130, 238, 0.075);
     border-radius: 7px;
     color: rgba(0, 0, 0, 0.897);
