@@ -1,5 +1,5 @@
 *{
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 body{
     width: 100vw;
@@ -14,19 +14,20 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5% 15%;
+    margin: 3% 8%;
+    background: rgba(255, 0, 0, 0.103)
 }
 
 .logo{
     color: rgb(21, 115, 255);
-    font-size: 27px;
+    font-size: 17px;
     font-weight: 900;
     text-align: center;
     border: 5px solid rgb(21, 115, 255);
     padding: 10px 30px ;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
+    letter-spacing: 5px;
     background-color: rgba(0, 0, 255, 0.171);
+    margin-bottom: 5px;
 }
 
 .parameters{
@@ -36,7 +37,7 @@ body{
 }
 
 .box{
-    margin: 5px 0;
+    margin-bottom: 5px;
     font-family: Arial, Helvetica, sans-serif;
     border: 3px solid rgba(21, 115, 255, 0.521);
     width: 290px;
