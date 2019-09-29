@@ -25,7 +25,6 @@ const init = () => {
     const passwordField = document.getElementById('pass');
 
     const generate = document.getElementById('generate');
-    const clear = document.getElementById('clear');
     const copy = document.getElementById('copy');
 
     function ifNoCharTypeSleceted(){
@@ -64,17 +63,6 @@ const init = () => {
         passwordField.focus();
     };
 
-    // clean the screen
-    function clean() {
-        specialInput.checked = false;
-        numberInput.checked = false;
-        lowerInput.checked = false;
-        upperInput.checked = false;
-        infoBox.innerHTML = ''
-        passwordField.value = '' 
-        document.getElementById('minLength').value = ''
-    }
-
 
     // print the errors on the screen
     function printErrors(){
@@ -105,7 +93,7 @@ const init = () => {
         } if (isNaN(Number(chosenLength)) === true ){
             errorList.push(2);
             
-        } debugger; if ((specialInput.checked ===true ||
+        } if ((specialInput.checked ===true ||
               numberInput.checked === true ||
               lowerInput.checked ===true ||
               upperInput.checked ===true) === false){
@@ -146,7 +134,6 @@ const init = () => {
 
     // 2. prepare the main event listeners
     generate.addEventListener('click',generatePass)
-    clear.addEventListener('click',clean)
     copy.addEventListener('click',copyDo)
 }
 

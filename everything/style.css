@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 15%;
+}
+
+.logo{
+    color: rgb(21, 115, 255);
+    font-size: 27px;
+    font-weight: 900;
+    text-align: center;
+    border: 5px solid rgb(21, 115, 255);
+    padding: 10px 30px ;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 255, 0.171);
+}
+
+.parameters{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box{
+    margin: 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid rgba(21, 115, 255, 0.521);
+    width: 290px;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgba(238, 130, 238, 0.075);
+    border-radius: 7px;
+    color: rgba(0, 0, 0, 0.897);
+}
+
+.textInput{
+    border: 2px solid rgba(0, 0, 255, 0.568);
+    background: rgba(0, 140, 255, 0.171);
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px 0.1px rgba(0, 0, 0, 0.404);
+}
+.textInput::placeholder{
+    color:rgba(0, 0, 0, 0.61);
+    font-size: 15px;
+}
+
+.checkbox{
+    width: 80px;
+}
+
+.buttons{
+
+    width: 275px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button{
+    margin-top: 15px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.596);
+}
