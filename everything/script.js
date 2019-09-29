@@ -10,11 +10,11 @@ const init = () => {
 
     // this is the set of erros that will be made as a reference once something is out of lines
     var errors = [
-            "Your \"Minimum Lenght\" section is: Empty.",                             //0
-            "You must choose a minimum of: 8, as length.",                            //1
-            "You must only enter an 'Integer Number' as the 'Minimum Length'.",      //2
-            "Please enter a value between 8 and 128 in 'Minimum Length'.",           //3
-            "You must choose at least <strong>one</strong> or more 'Character Type'.",       //4
+            "> Your \"Minimum Lenght\" section is: Empty.",                             //0
+            "> You must choose a minimum of: 8, as length.",                            //1
+            "> You must only enter an 'Integer Number' as the 'Minimum Length'.",      //2
+            "> Please enter a value between 8 and 128 in 'Minimum Length'.",           //3
+            "> You must choose at least <strong>one</strong> or more 'Character Type'.",       //4
         ];
 
     const specialInput = document.getElementById('specialInput');
