@@ -9,7 +9,7 @@ const init = () => {
     let errorList=[];
     let chars = [];
 
-    // this is the set of erros that will be made as a reference once something is out of lines
+    // this is the set of erro outputs in reference form.
     var errors = [
             "> Your \"Minimum Lenght\" section is: Empty.",                                    //0
             "> You must choose a minimum of: 8, as length.",                                   //1
@@ -82,7 +82,7 @@ const init = () => {
             let genNum = Math.floor(Math.random() * Math.floor(chars.length));
             password.push(chars[genNum][Math.floor(Math.random() * Math.floor(chars[genNum].length - 1))])
             }
-                // validate to make sure there is at least 1 from each char sets
+                // validate to make sure there is at least 1 char, from each charSets
             if (valid()){
                 passwordField.innerHTML = password.join('');
                 passwordField.focus();
@@ -133,7 +133,7 @@ const init = () => {
         if (typeof errorList[0] === typeof undefined){
             return true
         } else {
-            // write the errors on the textare
+            // write the errors on the <textarea>
             printErrors();
             return false;
         }
@@ -160,7 +160,7 @@ const init = () => {
 
     // 3.go through the process of generating a password
     function generatePass () {
-        // 4. validate the input & if valid,
+        // 4. validate the input: if valid, then..
         if (checkValidation()){
             infoBox.innerHTML = '';
             passwordField.innerHTML = '';
@@ -175,5 +175,5 @@ const init = () => {
 }
 
 
-// 1. initialize
+// 1. init >:D
 init();
