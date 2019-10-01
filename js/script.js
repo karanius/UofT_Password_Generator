@@ -25,6 +25,7 @@ const init = () => {
     const infoBox = document.getElementById('infoTxt');
     const passwordField = document.getElementById('pass');
     const tooltip = document.querySelector('.tooltip');
+    const tooltipB = document.querySelector('.tooltipB')
     const tooltipC = document.querySelector('.tooltipC');
     const clearBox = document.querySelector('.clearbox');
         
@@ -109,6 +110,11 @@ const init = () => {
             tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
             .fromTo(tooltip,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
             .fromTo(tooltip,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
+        } else if (errorList.includes(2)) {
+            let tlm = new TimelineMax();
+            tlm.fromTo(tooltipB,0.2,{opacity:0},{opacity:1})
+            .fromTo(tooltipB,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
+            .fromTo(tooltipB,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
         } else if (errorList.includes(4)) {
             clearBox.style.display = 'block';
             let xx = new TimelineMax();
@@ -116,7 +122,14 @@ const init = () => {
             .fromTo(tooltipC,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
             .fromTo(tooltipC,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
             clearBox.addEventListener('click',tooltC);
-        }
+            specialInput.addEventListener('click',tooltC);
+            numberInput.addEventListener('click',tooltC);
+            lowerInput.addEventListener('click',tooltC);
+            upperInput.addEventListener('click',tooltC);
+        } 
+
+
+
 
         errorList.forEach(function(err){
             if (typeof errors[err] !== typeof undefined){
@@ -191,16 +204,29 @@ const init = () => {
     function toolt(){
         let tlm = new TimelineMax();
         tlm.to(tooltip,0.2,{opacity:0})
-        
     }
+
+
+    function tooltX(){
+        let tlm = new TimelineMax();
+        tlm.to(tooltipB,0.2,{opacity:0})
+    }
+
+
+
     function tooltC(){
         let xx = new TimelineMax();
         xx.to(tooltipC,0.2,{opacity:0})
         clearBox.style.display = 'none';
+        specialInput.removeEventListener('click',tooltC);
+        numberInput.removeEventListener('click',tooltC);
+        lowerInput.removeEventListener('click',tooltC);
+        upperInput.removeEventListener('click',tooltC);
     }
     
     // 2. prepare the main event listeners
-    document.getElementById('minLength').addEventListener('click',toolt)
+    document.getElementById('minLength').addEventListener('click',toolt);
+    document.getElementById('minLength').addEventListener('click',tooltX);
     generate.addEventListener('click',generatePass)
     copy.addEventListener('click',copyDo)
     

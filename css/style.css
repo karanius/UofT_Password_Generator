@@ -208,11 +208,11 @@ button:focus{
     height: 1px;
     border-radius: 100%;
     opacity:0;
+    z-index: 20;
 }
 
 .tooltip::before, .tooltip::after{
     position: absolute;
-    z-index: 20;
 }
 
 
@@ -240,8 +240,55 @@ button:focus{
     padding: 10px;
     left: -80px;
     border-radius: 5px;
-    /* z-index:10; */
 }
+
+
+
+.tooltipB{
+    position: relative;
+    background: rgba(255, 0, 0, 0);
+    width:1px;
+    height: 1px;
+    border-radius: 100%;
+    opacity:0;
+    z-index: 20;
+}
+
+
+
+.tooltipB::before, .tooltipB::after{
+    position: absolute;
+}
+
+
+
+.tooltipB::before{
+    content: '';
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ff0404 transparent;
+    left: 67px;
+    top:-2px;
+}
+
+.tooltipB::after{
+    content:attr(data-tooltip);
+    color:rgb(255, 255, 255);
+    width: 220px;
+    height: 50px;
+    background:#ff0404;
+    top:18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    left: -80px;
+    border-radius: 5px;
+}
+
+
+
 
 
 .tooltipC{
@@ -250,13 +297,11 @@ button:focus{
     background: transparent;
     position: relative;
     opacity: 0;
-    /* z-index:10;     */
+    z-index: 20;
 }
 
 .tooltipC::before, .tooltipC::after{
     position: absolute;
-    /* z-index:10;     */
-    z-index: 20;
 }
 
 .tooltipC::before{
