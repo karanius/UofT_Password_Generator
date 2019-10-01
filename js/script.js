@@ -192,6 +192,9 @@ const init = () => {
 
     // 3.go through the process of generating a password
     function generatePass () {
+        tooltC()
+        tooltX()
+        toolt()
         // 4. validate the input: if valid, then..
         if (checkValidation()){
             infoBox.innerHTML = '';
@@ -211,7 +214,6 @@ const init = () => {
         let tlm = new TimelineMax();
         tlm.to(tooltipB,0.2,{opacity:0})
     }
-
 
 
     function tooltC(){
