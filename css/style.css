@@ -8,6 +8,7 @@ body{
 
 }
 
+
 .container{
     display: flex;
     flex-direction: column;
@@ -223,8 +224,6 @@ button:focus{
     border-color: transparent transparent #ff0404 transparent;
     left: 67px;
     top:-2px;
-
-
 }
 
 .tooltip::after{
@@ -245,3 +244,50 @@ button:focus{
 }
 
 
+.tooltipC{
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    position: relative;
+    opacity: 0;
+    z-index:10;    
+}
+
+.tooltipC::before, .tooltipC::after{
+    position: absolute;
+    z-index:10;    
+}
+
+.tooltipC::before{
+    content: '';
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ff0404 transparent;
+    left:60px;
+    bottom:-8px;
+}
+
+.tooltipC::after{
+    content:attr(data-tooltipC);
+    color:rgb(255, 255, 255);
+    width: 220px;
+    height: 50px;
+    background:#ff0404;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;  
+    top:9px;
+    left: 15px;
+}
+.clearbox{
+    width: 220px;
+    height: 60px;
+    position: absolute;
+    z-index:30;
+    display: none;
+    top:165px;
+    left:175px;
+} 

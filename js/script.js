@@ -25,7 +25,9 @@ const init = () => {
     const infoBox = document.getElementById('infoTxt');
     const passwordField = document.getElementById('pass');
     const tooltip = document.querySelector('.tooltip');
-
+    const tooltipC = document.querySelector('.tooltipC');
+    const clearBox = document.querySelector('.clearbox');
+        
     const copiedCard = document.getElementById('card');
 
     const generate = document.getElementById('generate');
@@ -105,9 +107,16 @@ const init = () => {
         if (errorList.includes(0) || errorList.includes(3) ){
             let tlm = new TimelineMax();
             tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
+            .fromTo(tooltip,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
+            .fromTo(tooltip,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
+        } else if (errorList.includes(4)) {
+            clearBox.style.display = 'block';
+            let xx = new TimelineMax();
+            xx.fromTo(tooltipC,0.2,{opacity:0},{opacity:1})
+            .fromTo(tooltipC,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
+            .fromTo(tooltipC,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
+            clearBox.addEventListener('click',tooltC);
         }
-
-        if ()
 
         errorList.forEach(function(err){
             if (typeof errors[err] !== typeof undefined){
@@ -179,19 +188,18 @@ const init = () => {
         }
     }
 
-    // 2. prepare the main event listeners
-
-    function prompt(){
-        // this function will prompt the user for input
-    }
-
     function toolt(){
         let tlm = new TimelineMax();
         tlm.to(tooltip,0.2,{opacity:0})
-            
+        
+    }
+    function tooltC(){
+        let xx = new TimelineMax();
+        xx.to(tooltipC,0.2,{opacity:0})
+        clearBox.style.display = 'none';
     }
     
-    
+    // 2. prepare the main event listeners
     document.getElementById('minLength').addEventListener('click',toolt)
     generate.addEventListener('click',generatePass)
     copy.addEventListener('click',copyDo)
