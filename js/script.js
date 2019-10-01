@@ -24,6 +24,7 @@ const init = () => {
     const upperInput = document.getElementById('upperInput');
     const infoBox = document.getElementById('infoTxt');
     const passwordField = document.getElementById('pass');
+    const tooltip = document.querySelector('.tooltip');
 
     const copiedCard = document.getElementById('card');
 
@@ -99,6 +100,15 @@ const init = () => {
     function printErrors(){
         let finalList = [];
         errorList = [...new Set(errorList)]
+        console.log(errorList)
+
+        if (errorList.includes(0) || errorList.includes(3) ){
+            let tlm = new TimelineMax();
+            tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
+        }
+
+        if ()
+
         errorList.forEach(function(err){
             if (typeof errors[err] !== typeof undefined){
                 finalList.push(`<li>${errors[err]}</li>`)
@@ -170,8 +180,22 @@ const init = () => {
     }
 
     // 2. prepare the main event listeners
+
+    function prompt(){
+        // this function will prompt the user for input
+    }
+
+    function toolt(){
+        let tlm = new TimelineMax();
+        tlm.to(tooltip,0.2,{opacity:0})
+            
+    }
+    
+    
+    document.getElementById('minLength').addEventListener('click',toolt)
     generate.addEventListener('click',generatePass)
     copy.addEventListener('click',copyDo)
+    
 }
 
 

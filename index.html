@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Password Generator</title>
 </head>
 <body>
     <!-- this is the container that hold all elements -->
@@ -17,26 +17,27 @@
         <!-- this is the container that hold all the user input and parameters -->
         <div class="parameters">
             <div class="box box1">
-                <label for="">Minimum Length: </label>  
+                <label for="minimumLenght" >Minimum Length: </label>  
+                <div class="tooltip" data-tooltip='You Must Enter A Minimum Lenght Here First!' ></div>
                 <input type="text" class='textInput' placeholder='Min: 8 - Max: 128' id='minLength'>
             </div>
 
         <fieldset>
             <legend>Character Types: </legend>
             <div class="box">
-                <label for="">Use Special Characters:</label>
+                <label for="specialCharacters">Use Special Characters:</label>
                 <input type="checkbox" class='checkbo' id='specialInput'  >
             </div>
             <div class="box">
-                <label for="">Use Numbers:</label>
+                <label for="numberCharacter">Use Numbers:</label>
                 <input  type="checkbox" class='checkbo' id='numberInput' >
             </div>
             <div class="box">
-                <label for="">Use Lowercase Letters:</label>    
+                <label for="lowercaseCharacters">Use Lowercase Letters:</label>    
                 <input type="checkbox" class='checkbo' id='lowerInput' >
             </div>
             <div class="box">
-                <label for="">Use Uppercase Letters:</label>    
+                <label for="uppercaseCharacters">Use Uppercase Letters:</label>    
                 <input type="checkbox" class='checkbo' id='upperInput' >
             </div>
         </fieldset>
@@ -45,7 +46,7 @@
         </div>
 
         <div class="passCard">
-            <textarea name="" id="pass" cols="30" rows="10" class='textInput'  placeholder='Password Will Generate Here' readonly></textarea>
+            <textarea name="passwordArea" id="pass" cols="30" rows="10" class='textInput'  placeholder='Password Will Generate Here' readonly></textarea>
             <div id="card"><p>Copied :)</p></div>    
         </div>
 
