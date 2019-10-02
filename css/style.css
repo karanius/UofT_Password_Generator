@@ -168,7 +168,7 @@ button:focus{
 #infoBox{
     display: flex;
     text-align: center;
-    background: rgba(255, 0, 0, 0.274);
+    background: hsl(0,100%,90%);
     width: 90%;
     padding: 10px 10px;
     border-radius: 5px;
@@ -215,13 +215,9 @@ button:focus{
 
 .tooltip{
     position: relative;
-    background: rgba(255, 0, 0, 0);
-    width:1px;
-    height: 1px;
-    border-radius: 100%;
-    opacity:0;
     z-index: 20;
     pointer-events: none;
+    display: none;
 }
 
 .tooltip::before, .tooltip::after{
@@ -236,7 +232,7 @@ button:focus{
     border-style: solid;
     border-color: transparent transparent #ff0404 transparent;
     left: 67px;
-    top:-2px;
+    top:37px;
 }
 
 .tooltip::after{
@@ -252,6 +248,7 @@ button:focus{
     box-sizing: border-box;
     padding: 10px;
     left: -80px;
+    top: 56px;
     border-radius: 5px;
 }
 
@@ -259,11 +256,9 @@ button:focus{
 
 .tooltipB{
     position: relative;
-    background: rgba(255, 0, 0, 0);
-    border-radius: 100%;
-    opacity:0;
     z-index: 20;
     pointer-events: none;
+    display: none;
 }
 
 
@@ -280,7 +275,7 @@ button:focus{
     border-style: solid;
     border-color: transparent transparent #ff0404 transparent;
     left: 67px;
-    top:-2px;
+    top:37px;
 }
 
 .tooltipB::after{
@@ -289,27 +284,20 @@ button:focus{
     width: 220px;
     height: 50px;
     background:#ff0404;
-    top:18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     box-sizing: border-box;
-    padding: 10px;
-    left: -80px;
     border-radius: 5px;
+    left: -80px;
+    top: 56px;
+    padding: 6px;
 }
 
 
-
-
-
 .tooltipC{
-    width: 1px;
-    height: 1px;
     background: transparent;
     position: relative;
-    opacity: 0;
     z-index: 20;
+    display: none;
 }
 
 .tooltipC::before, .tooltipC::after{
@@ -340,14 +328,49 @@ button:focus{
     top:8px;
     left: 15px;
 }
-.clearbox{
+
+.tooltipD{
+    position: absolute;
+    display: none;
+}
+
+.tooltipD::after{
+    position: absolute;
+    content: '';
+    border-width: 10px 10px 10px 10px;
+    border-color: #ff0404 transparent transparent  transparent;
+    border-style: solid;
+    bottom: -9px;
+    left:-75px;
+}
+
+.tooltipD::before{
+    content: attr(data-tooltipD);
+    position: absolute;
     width: 220px;
+    height: 50px;
+    background-color: #ff0404;
+    border-radius: 5px;
+    bottom:10px;
+    left: -120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+
+
+
+
+.clearbox{
+    width: 230px;
     height: 60px;
     position: absolute;
     z-index:30;
-    display: none;
+    display: block;
     top:165px;
-    left:175px;
+    left:168px;
 } 
 
 .i{
@@ -381,4 +404,7 @@ button:focus{
     from {opacity: 1;}
     to {opacity: 0;}
 }
+
+
+
 

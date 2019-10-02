@@ -14,12 +14,12 @@
         <!-- this is the logo -->
         <div class="logo">PASSWORD GENERATOR</div>
 
+        <div class="tooltip" data-tooltip='You Must Enter a Number Between 8 and 128' ></div>
+        <div class="tooltipB" data-tooltip='You Can ONLY Enter Numbers' ></div>
         <!-- this is the container that hold all the user input and parameters -->
         <div class="parameters">
             <div class="box box1">
                 <label for="minimumLenght" >Minimum Length: </label>  
-                <div class="tooltip" data-tooltip='You Must Enter a Number Between 8 and 128' ></div>
-                <div class="tooltipB" data-tooltip='You Can ONLY Enter Numbers' ></div>
 <div class="innerContainer">
     <input type="text" class='textInput' placeholder='Min: 8 - Max: 128' id='minLength'>
     <div class='i'></div>
@@ -58,6 +58,7 @@
         </div>
 
         <div class="buttons">
+            <div class="tooltipD" data-tooltipD='You Must Generate First!' ></div>
             <button id='generate'>Generate</button>
             <button id='copy'> Copy to Clipboard</button>
         </div>

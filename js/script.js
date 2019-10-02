@@ -30,26 +30,12 @@ const init = () => {
     const clearBox = document.querySelector('.clearbox');
     const bgInfoBox = document.querySelector('#infoBox')
     const caret = document.querySelector('.i');
+    const tooltipD = document.querySelector('.tooltipD')
 
     const copiedCard = document.getElementById('card');
 
     const generate = document.getElementById('generate');
     const copy = document.getElementById('copy');
-
-
-
-    // wondering why I wasnt using this code. Will leave it here for now,
-
-    // function ifNoCharTypeSleceted(){
-    //     if (specialInput.checked !==true ||
-    //     numberInput.checked !==true ||
-    //     lowerInput.checked !==true ||
-    //     upperInput.checked !==true ){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
 
 
     // generate the actual password randomly
@@ -112,17 +98,22 @@ const init = () => {
         errorList = [...new Set(errorList)]
 
         if (errorList.includes(0) || errorList.includes(3) ){
+            tooltip.style.display = 'block'
             let tlm = new TimelineMax();
             tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
             .fromTo(tooltip,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
             .fromTo(tooltip,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
+
         } else if (errorList.includes(2)) {
+            tooltipB.style.display = 'block'
             let tlm = new TimelineMax();
             tlm.fromTo(tooltipB,0.2,{opacity:0},{opacity:1})
             .fromTo(tooltipB,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
             .fromTo(tooltipB,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
+
         } else if (errorList.includes(4)) {
             clearBox.style.display = 'block';
+            tooltipC.style.display = 'block'
             let xx = new TimelineMax();
             xx.fromTo(tooltipC,0.2,{opacity:0},{opacity:1})
             .fromTo(tooltipC,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
@@ -133,10 +124,6 @@ const init = () => {
             lowerInput.addEventListener('click',tooltC);
             upperInput.addEventListener('click',tooltC);
         } 
-
-            
-            
-
 
         errorList.forEach(function(err){
             if (typeof errors[err] !== typeof undefined){
@@ -149,10 +136,16 @@ const init = () => {
         finalList = finalList.join('')
         infoBox.innerHTML = finalList;
         bgInfoBox.style.display = 'block';
+
+        let tl = new TimelineMax();
+        tl.fromTo(bgInfoBox,0.2,{background:'hsl(0,100%,75%)'},{background:'hsl(0,100%,90%)'})
+        .fromTo(bgInfoBox,0.1,{background:'hsl(0,100%,75%)'},{background:'hsl(0,100%,90%)'})
+        .fromTo(bgInfoBox,0.05,{background:'hsl(0,100%,75%)'},{background:'hsl(0,100%,90%)'});
     }
 
 // check the validity of the input
     function checkValidation(){
+        tooltipD.style.display = 'none'
         errorList=[]
         chosenLength = document.getElementById('minLength').value;
         if (chosenLength === ''){
@@ -183,39 +176,45 @@ const init = () => {
 
     function copyDo () {
 
-        if (errorList.includes(0) || errorList.includes(3) ){
-            let tlm = new TimelineMax();
-            tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
-            .fromTo(tooltip,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
-            .fromTo(tooltip,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
-        } 
-
         if (passwordField.value === '' ){
+            clearTooltips()
             infoBox.innerHTML = '> Nothing To Copy to Clipboard..';
             bgInfoBox.style.display = 'block';
+            tooltipD.style.display ='block'
+            let tlm = new TimelineMax();
+            tlm.fromTo(tooltipD,0.2,{opacity:0},{opacity:1})
+            .fromTo(tooltipD,0.2,{transform:'scale(1.0)'},{transform:'scale(1.10)'},'-=0.2')
+            .fromTo(tooltipD,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'})
+            .fromTo(bgInfoBox,0.2,{background:'hsl(0,100%,75%)'},{background:'hsl(0,100%,90%)'},'-=0.1')
+            .fromTo(bgInfoBox,0.1,{background:'hsl(0,100%,75%)'},{background:'hsl(0,100%,90%)'},'-=0.1')
+            .fromTo(bgInfoBox,0.05,{background:'hsl(0,100%,75%)'},{background:'hsl(0,100%,90%)'}),'-=0.1';
+
+
+
         } else {
+            infoBox.innerHTML = '';
+            
+            passwordField.focus();
+            passwordField.select();
+            document.execCommand('copy');
+            bgInfoBox.style.display = 'none';
+            
             let tl = new TimelineMax();
             tl.fromTo(copiedCard, 0.2, {opacity:0},{opacity:1})
             .to(copiedCard, 0.9, {opacity:0},'+=0.3');
             
-
-
-            infoBox.innerHTML = '';
-            bgInfoBox.style.display = 'none';
-            passwordField.focus();
-            passwordField.select();
-            document.execCommand('copy');
         }   
     }
 
+
     function clearTooltips(){
         tooltC()
-        tooltX()
+        tooltB()
         toolt()
+        tooltD()
     }
 
     // 3.go through the process of generating a password
-    clearTooltips()
     function generatePass () {
         // 4. validate the input: if valid, then..
         if (checkValidation()){
@@ -226,15 +225,22 @@ const init = () => {
         }
     }
 
+    function tooltD(){
+        let tlm = new TimelineMax();
+        tlm.to(tooltipD,0.2,{opacity:0})
+    }
+
     function toolt(){
         let tlm = new TimelineMax();
         tlm.to(tooltip,0.2,{opacity:0})
+        .to(tooltip,0.2,{display:'none'})
     }
 
 
-    function tooltX(){
+    function tooltB(){
         let tlm = new TimelineMax();
         tlm.to(tooltipB,0.2,{opacity:0})
+        .to(tooltipB,0.2,{display:'none'})
     }
 
 
@@ -249,7 +255,7 @@ const init = () => {
     }
 
 
-    // this function will make the beating text-caret disappear if if contains a value
+    // this function will make the beating text-caret disappear if it user starts typing.
     function textCaret(){
         if ( (document.querySelector('minLength') === document.activeElement) ) {
             caret.style.display = 'none';
@@ -263,12 +269,12 @@ const init = () => {
     // 2. prepare the main event listeners
     document.getElementById('minLength').addEventListener('input',textCaret);
     document.getElementById('minLength').addEventListener('focus',textCaret);
+
     document.getElementById('minLength').addEventListener('click',toolt);
-    document.getElementById('minLength').addEventListener('click',tooltX);
+    document.getElementById('minLength').addEventListener('click',tooltB);
+
     generate.addEventListener('click',generatePass)
     copy.addEventListener('click',copyDo)
-    setInterval(()=>(document.querySelector('minLength') === document.activeElement),1000)
-    
 }
 
 
