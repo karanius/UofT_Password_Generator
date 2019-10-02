@@ -36,6 +36,10 @@ const init = () => {
     const generate = document.getElementById('generate');
     const copy = document.getElementById('copy');
 
+
+
+    // wondering why I wasnt using this code. Will leave it here for now,
+
     // function ifNoCharTypeSleceted(){
     //     if (specialInput.checked !==true ||
     //     numberInput.checked !==true ||
@@ -65,7 +69,6 @@ const init = () => {
         
         function valid(){
             let trueFalseList = new Array(chars.length)
-            console.log('asd')
             chars.forEach(function(char,i){
                 for (let len=0;len< password.length;len++){
                     let charSet = new Set(char)

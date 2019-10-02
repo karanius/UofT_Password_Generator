@@ -84,7 +84,7 @@ body{
 .textInput:focus{
     outline: none;
     color: rgb(182, 46, 46);
-    caret-color: transparent;
+    caret-color: red;
 }
 
 #minLength:hover{
