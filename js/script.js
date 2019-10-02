@@ -36,16 +36,16 @@ const init = () => {
     const generate = document.getElementById('generate');
     const copy = document.getElementById('copy');
 
-    function ifNoCharTypeSleceted(){
-        if (specialInput.checked !==true ||
-        numberInput.checked !==true ||
-        lowerInput.checked !==true ||
-        upperInput.checked !==true ){
-            return true;
-        }else{
-            return false;
-        }
-    }
+    // function ifNoCharTypeSleceted(){
+    //     if (specialInput.checked !==true ||
+    //     numberInput.checked !==true ||
+    //     lowerInput.checked !==true ||
+    //     upperInput.checked !==true ){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
 
 
     // generate the actual password randomly
@@ -65,7 +65,8 @@ const init = () => {
         
         function valid(){
             let trueFalseList = new Array(chars.length)
-            chars.map(function(char,i){
+            console.log('asd')
+            chars.forEach(function(char,i){
                 for (let len=0;len< password.length;len++){
                     let charSet = new Set(char)
                     if ( (charSet.has(password[len])) === true ){

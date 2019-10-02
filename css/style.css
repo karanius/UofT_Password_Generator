@@ -84,7 +84,7 @@ body{
 .textInput:focus{
     outline: none;
     color: rgb(182, 46, 46);
-    caret-color: red;
+    caret-color: transparent;
 }
 
 #minLength:hover{
@@ -362,8 +362,8 @@ button:focus{
     width: 2px;
     height: 15px;
     background-color: #af0000;
-    left:-74px;
-    top:-7px;
+
+    top:-25px;
     animation-name: blink;
     animation-duration: 800ms;
     animation-iteration-count: infinite;
