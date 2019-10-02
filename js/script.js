@@ -245,7 +245,7 @@ const init = () => {
 
     // this function will make the beating text-caret disappear if if contains a value
     function textCaret(){
-        if (document.getElementById('minLength').value !== '' ) {
+        if ((document.getElementById('minLength').value !== '') || (document.querySelector('minLength') === document.activeElement) ) {
             caret.style.display = 'none';
         } else {
             caret.style.display = 'block';
