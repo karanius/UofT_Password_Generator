@@ -71,7 +71,7 @@ const init = () => {
                     }
                 }
             })
-            console.log(trueFalseList)
+            console.log('set min len to 8 and select all 4 and keep generating',trueFalseList)
             const allMustBeTrue = new Set(trueFalseList)
             if (allMustBeTrue.has(undefined)) {
                 return false;
@@ -103,8 +103,6 @@ const init = () => {
     function printErrors(){
         let finalList = [];
         errorList = [...new Set(errorList)]
-        console.log(errorList)
-
         if (errorList.includes(0) || errorList.includes(3) ){
             let tlm = new TimelineMax();
             tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
