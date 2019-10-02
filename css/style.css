@@ -61,7 +61,6 @@ body{
     padding-top: 8px;
     margin-bottom:10px;
     position: relative;
-
 }
 
 .textInput{
@@ -169,6 +168,12 @@ button:focus{
 #infoBox{
     display: flex;
     text-align: center;
+    background: rgba(255, 0, 0, 0.274);
+    width: 90%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 111, 111);
+    display: none;
 }
 
 #infoTxt{
@@ -216,6 +221,7 @@ button:focus{
     border-radius: 100%;
     opacity:0;
     z-index: 20;
+    pointer-events: none;
 }
 
 .tooltip::before, .tooltip::after{
@@ -254,11 +260,10 @@ button:focus{
 .tooltipB{
     position: relative;
     background: rgba(255, 0, 0, 0);
-    width:1px;
-    height: 1px;
     border-radius: 100%;
     opacity:0;
     z-index: 20;
+    pointer-events: none;
 }
 
 
@@ -332,7 +337,7 @@ button:focus{
     box-sizing: border-box;
     padding: 10px;
     border-radius: 5px;  
-    top:9px;
+    top:8px;
     left: 15px;
 }
 .clearbox{
@@ -344,3 +349,36 @@ button:focus{
     top:165px;
     left:175px;
 } 
+
+.i{
+    position: relative;
+    pointer-events: none;
+}
+
+.i::before{
+    position: absolute;
+    content: '';
+    transform: scale(1.3);
+    width: 2px;
+    height: 15px;
+    background-color: #af0000;
+    left:-74px;
+    top:-7px;
+    animation-name: blink;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    text-shadow: 0px 1px red;
+    text-shadow: 0px -1px red;
+}
+
+#minLength:focus + .i{
+    display: none;
+}
+
+
+@keyframes blink {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+

@@ -28,7 +28,9 @@ const init = () => {
     const tooltipB = document.querySelector('.tooltipB')
     const tooltipC = document.querySelector('.tooltipC');
     const clearBox = document.querySelector('.clearbox');
-        
+    const bgInfoBox = document.querySelector('#infoBox')
+    const caret = document.querySelector('.i');
+
     const copiedCard = document.getElementById('card');
 
     const generate = document.getElementById('generate');
@@ -90,6 +92,7 @@ const init = () => {
             if (valid()){
                 passwordField.innerHTML = password.join('');
                 passwordField.focus();
+                bgInfoBox.style.display = 'none';
             } else{
                 password = [];
                 generatous()
@@ -103,6 +106,7 @@ const init = () => {
     function printErrors(){
         let finalList = [];
         errorList = [...new Set(errorList)]
+
         if (errorList.includes(0) || errorList.includes(3) ){
             let tlm = new TimelineMax();
             tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
@@ -126,7 +130,8 @@ const init = () => {
             upperInput.addEventListener('click',tooltC);
         } 
 
-
+            
+            
 
 
         errorList.forEach(function(err){
@@ -139,6 +144,7 @@ const init = () => {
             )
         finalList = finalList.join('')
         infoBox.innerHTML = finalList;
+        bgInfoBox.style.display = 'block';
     }
 
 // check the validity of the input
@@ -172,8 +178,15 @@ const init = () => {
 
 
     function copyDo () {
+        if (errorList.includes(0) || errorList.includes(3) ){
+            let tlm = new TimelineMax();
+            tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
+            .fromTo(tooltip,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
+            .fromTo(tooltip,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
+        } 
+
         if (passwordField.value === ''){
-            infoBox.innerHTML = 'Nothing To Copy to Clipboard..';
+            infoBox.innerHTML = '> Nothing To Copy to Clipboard..';
         } else {
             let tl = new TimelineMax();
             tl.fromTo(copiedCard, 0.2, {opacity:0},{opacity:1})
@@ -182,17 +195,22 @@ const init = () => {
 
 
             infoBox.innerHTML = '';
+            bgInfoBox.style.display = 'none';
             passwordField.focus();
             passwordField.select();
             document.execCommand('copy');
         }   
     }
 
-    // 3.go through the process of generating a password
-    function generatePass () {
+    function clearTooltips(){
         tooltC()
         tooltX()
         toolt()
+    }
+
+    // 3.go through the process of generating a password
+    clearTooltips()
+    function generatePass () {
         // 4. validate the input: if valid, then..
         if (checkValidation()){
             infoBox.innerHTML = '';
@@ -223,8 +241,19 @@ const init = () => {
         lowerInput.removeEventListener('click',tooltC);
         upperInput.removeEventListener('click',tooltC);
     }
+
+
+    // this function will make the beating text-caret disappear if if contains a value
+    function textCaret(){
+        if (document.getElementById('minLength').value !== '' ) {
+            caret.style.display = 'none';
+        } else {
+            caret.style.display = 'block';
+        }
+    }
     
     // 2. prepare the main event listeners
+    document.getElementById('minLength').addEventListener('input',textCaret);
     document.getElementById('minLength').addEventListener('click',toolt);
     document.getElementById('minLength').addEventListener('click',tooltX);
     generate.addEventListener('click',generatePass)
