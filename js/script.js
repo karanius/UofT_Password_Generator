@@ -178,6 +178,7 @@ const init = () => {
 
 
     function copyDo () {
+
         if (errorList.includes(0) || errorList.includes(3) ){
             let tlm = new TimelineMax();
             tlm.fromTo(tooltip,0.2,{opacity:0},{opacity:1})
@@ -185,8 +186,9 @@ const init = () => {
             .fromTo(tooltip,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
         } 
 
-        if (passwordField.value === ''){
+        if (passwordField.value === '' ){
             infoBox.innerHTML = '> Nothing To Copy to Clipboard..';
+            bgInfoBox.style.display = 'block';
         } else {
             let tl = new TimelineMax();
             tl.fromTo(copiedCard, 0.2, {opacity:0},{opacity:1})
@@ -245,19 +247,23 @@ const init = () => {
 
     // this function will make the beating text-caret disappear if if contains a value
     function textCaret(){
-        if ((document.getElementById('minLength').value !== '') || (document.querySelector('minLength') === document.activeElement) ) {
+        if ( (document.querySelector('minLength') === document.activeElement) ) {
             caret.style.display = 'none';
-        } else {
+        } if ((document.getElementById('minLength').value === '')) {
             caret.style.display = 'block';
+        } else {
+            caret.style.display = 'none';
         }
     }
     
     // 2. prepare the main event listeners
     document.getElementById('minLength').addEventListener('input',textCaret);
+    document.getElementById('minLength').addEventListener('focus',textCaret);
     document.getElementById('minLength').addEventListener('click',toolt);
     document.getElementById('minLength').addEventListener('click',tooltX);
     generate.addEventListener('click',generatePass)
     copy.addEventListener('click',copyDo)
+    setInterval(()=>(document.querySelector('minLength') === document.activeElement),1000)
     
 }
 
