@@ -420,7 +420,6 @@ button:focus{
     .container{
         margin-top:14px;
         width: 350px;
-        height: 720px;
     }
 
     #top{
@@ -442,7 +441,7 @@ button:focus{
     #infoBox{
         margin-top: 0px;
         width:300px;
-        height: 168px;
+        height: 140px;
         top: 520px;
     }
 
