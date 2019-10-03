@@ -27,7 +27,6 @@ const init = () => {
     const tooltip = document.querySelector('.tooltip');
     const tooltipB = document.querySelector('.tooltipB')
     const tooltipC = document.querySelector('.tooltipC');
-    const clearBox = document.querySelector('.clearbox');
     const bgInfoBox = document.querySelector('#infoBox')
     const caret = document.querySelector('.i');
     const tooltipD = document.querySelector('.tooltipD')
@@ -112,13 +111,11 @@ const init = () => {
             .fromTo(tooltipB,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
 
         } else if (errorList.includes(4)) {
-            clearBox.style.display = 'block';
             tooltipC.style.display = 'block'
             let xx = new TimelineMax();
             xx.fromTo(tooltipC,0.2,{opacity:0},{opacity:1})
             .fromTo(tooltipC,0.2,{transform:'scale(1.0)'},{transform:'scale(1.2)'},'-=0.2')
             .fromTo(tooltipC,0.1,{transform:'scale(1.1)'},{transform:'scale(1.0)'});
-            clearBox.addEventListener('click',tooltC);
             specialInput.addEventListener('click',tooltC);
             numberInput.addEventListener('click',tooltC);
             lowerInput.addEventListener('click',tooltC);
@@ -247,7 +244,7 @@ const init = () => {
     function tooltC(){
         let xx = new TimelineMax();
         xx.to(tooltipC,0.2,{opacity:0})
-        clearBox.style.display = 'none';
+
         specialInput.removeEventListener('click',tooltC);
         numberInput.removeEventListener('click',tooltC);
         lowerInput.removeEventListener('click',tooltC);
