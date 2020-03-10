@@ -1,8 +1,8 @@
 ## Table of Contents
 
 - [Password Generator](#password-generator)
-- [UofT SCS Full-Stack Web Development Boot Camp Project #3: Password Generator](#uoft-scs-full-stack-web-development-boot-camp-project-3-password-generator)
 - [Live Link](#live-link)
+- [UofT SCS Full-Stack Web Development Boot Camp Project #3: Password Generator](#uoft-scs-full-stack-web-development-boot-camp-project-3-password-generator)
   - [About the Project](#about-the-project)
     - [More about Online Safety](#more-about-online-safety)
   - [Development strategy](#development-strategy)
@@ -14,11 +14,11 @@
 # Password Generator
 
 
+# [Live Link](https://karanius.github.io/passwordGenerator/)
 ![](./screenShot.gif)
 
 # UofT SCS Full-Stack Web Development Boot Camp Project #3: Password Generator
 
-# [Live Link](https://karanius.github.io/passwordGenerator/)
 
 Cross-Platform Password Management Solution
 
