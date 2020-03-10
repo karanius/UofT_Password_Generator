@@ -118,10 +118,10 @@ body{
     width: 300px;
     height: 80px;
     margin-bottom:20px;
+    resize: none;
 }
 
 .buttons{
-    /* width: 275px; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
