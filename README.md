@@ -14,7 +14,7 @@
 # Password Generator
 
 
-# [Live Link](https://karanius.github.io/passwordGenerator/)
+# [Live Link](https://karanius.github.io/UofT_Password_Generator/)
 ![](./screenShot.gif)
 
 # UofT SCS Full-Stack Web Development Boot Camp Project #3: Password Generator
